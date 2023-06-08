@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <body>
-
-  <p>Click the button to get your coordinates.</p>
-
-  <button onclick="getLocation()">Try It</button>
-
-  <p id="demo"></p>
-
+<head>
+  <title>Compress.io</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="title-animation">
+    <span class="title-text" id="animatedText">Welcome</span>
+  </div>
+  
   <script>
-  var x = document.getElementById("demo");
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-      x.innerHTML = "Geolocation is not supported by this browser.";
+    var animatedTextElement = document.getElementById('animatedText');
+    var words = ["Welcome", "to", "Media Compression", "Web!"];
+    var currentIndex = 0;
+  
+    function changeText() {
+      animatedTextElement.innerText = words[currentIndex];
+      currentIndex++;
+      if (currentIndex >= words.length) {
+        currentIndex = 0;
+      }
     }
-  }
-
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-  }
+  
+    setInterval(changeText, 2000);
   </script>
+  <div class="background-animation"></div>
+  <div class="container">
 
-  </body>
+    <h1>Image Compression</h1>
+    <input type="file" id="imageInput" accept="image/*" class="form-control-file">
+    <button onclick="compressImage()" class="btn btn-primary">Compress Image</button>
+    <div id="imageResult" class="hidden"></div>
+
+    <h1>Audio Compression</h1>
+    <input type="file" id="audioInput" accept="audio/*" class="form-control-file">
+    <button onclick="compressAudio()" class="btn btn-primary">Compress Audio</button>
+    <audio id="previewAudio" controls class="hidden"></audio>
+    <a id="downloadLink" class="btn btn-primary" download style="display: none;">Download Original Audio</a>
+
+    <h2>Compressed Audio</h2>
+    <audio id="compressedPreviewAudio" controls class="hidden"></audio>
+    <a id="compressedDownloadLink" class="btn btn-primary" download style="display: none;">Download Compressed Audio</a>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="app.js"></script>
+</body>
 </html>
