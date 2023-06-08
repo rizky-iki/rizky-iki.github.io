@@ -1,0 +1,99 @@
+body {
+  /* Gaya khusus untuk body */
+  display: grid;
+  place-items: center;
+  height: auto;
+  overflow: auto;
+}
+
+body {
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.container {
+  display: grid;
+  gap: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  width: max-content;
+  margin-top: 120px;;
+  position: relative;
+  z-index: 1;
+}
+
+
+@keyframes astronaut-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Tambahkan aturan gaya khusus lainnya sesuai kebutuhan */
+
+/* Akhir aturan gaya khusus */
+
+.hidden {
+  display: none;
+}
+
+.btn {
+  white-space: nowrap;
+}
+
+.title-animation {
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  line-height: 40px;
+  color: #ecf0f1;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px; /* Penambahan jarak antara judul animasi dan kontainer */
+}
+
+.title-animation .title-text {
+  display: inline;
+  margin: 0;
+}
+
+.title-animation:before {
+  content: '[';
+  color: #16a085;
+  font-size: 42px;
+  line-height: 40px;
+  -webkit-animation-name: opacity;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: opacity;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.title-animation:after {
+  content: ']';
+  color: #16a085;
+  font-size: 42px;
+  line-height: 40px;
+  -webkit-animation-name: opacity;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: opacity;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes opacity {
+  0%, 100% {opacity:0;}
+  50% {opacity:1;}
+}
